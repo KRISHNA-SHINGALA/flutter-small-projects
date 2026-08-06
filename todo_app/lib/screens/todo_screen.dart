@@ -11,21 +11,16 @@ class TodoScreen extends StatefulWidget {
 
 class _TodoScreenState extends State<TodoScreen> {
   TextEditingController txtTitle = TextEditingController();
+  int selIndx = -1;
   List<String> tasks = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Todo App',
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 24,
-          fontWeight: FontWeight.bold
-        ),
-        ),
-        backgroundColor: Colors.deepPurpleAccent,
+        title: Text('Todo App', style: TextStyle(color: Colors.white)),
+        backgroundColor: Colors.deepPurple,
       ),
-      body : Column(
+      body: Column(
         children: [
           Row(
             children: [
@@ -33,18 +28,23 @@ class _TodoScreenState extends State<TodoScreen> {
                 child: TextField(
                   controller: txtTitle,
                   decoration: InputDecoration(
-                    hintText: 'Enter Title',
-                    labelText: 'Title',
+                    hintText: "Enter title",
+                    labelText: "Title",
                   ),
                 ),
               ),
               IconButton(
                 onPressed: () {
                   log(txtTitle.text);
-                  if(txtTitle.text.isNotEmpty){
-                  tasks.add(txtTitle.text);
-                  txtTitle.text = "";
-                  setState((){});
+                  if (txtTitle.text.isNotEmpty) {
+                   if(selIndx==-1)
+                    {tasks.add(txtTitle.text);}
+                    else{
+                      tasks[selIndx] = txtTitle.text;
+                      selIndx = -1;
+                    }
+                    txtTitle.text = "";
+                    setState(() {});
                   }
                 },
                 icon: Icon(Icons.add),
@@ -59,17 +59,18 @@ class _TodoScreenState extends State<TodoScreen> {
                   width: 100,
                   child: Row(
                     children: [
-                        IconButton(
+                      IconButton(
                         onPressed: () {
-                          tasks.removeAt(index);
-                          setState((){});
+                          txtTitle.text = tasks[index];
+                          selIndx = index;
+                          setState(() {});
                         },
                         icon: Icon(Icons.edit),
                       ),
                       IconButton(
                         onPressed: () {
                           tasks.removeAt(index);
-                          setState((){});
+                          setState(() {});
                         },
                         icon: Icon(Icons.delete),
                       ),
@@ -78,10 +79,10 @@ class _TodoScreenState extends State<TodoScreen> {
                 ),
               ),
               itemCount: tasks.length,
-              ),
             ),
+          ),
         ],
-      )
+      ),
     );
   }
 }
