@@ -8,11 +8,11 @@ class DropDownExample extends StatefulWidget {
 }
 
 class _DropDownExampleState extends State<DropDownExample> {
-  String unit = 'unit 1';
+  String unit = 'Rajkot';
 
   void setDropDownValue(){
     setState(() {
-      unit = 'unit 3';
+      unit = 'Jamanagar';
     });
   }
 
@@ -28,9 +28,9 @@ class _DropDownExampleState extends State<DropDownExample> {
               value: unit,
               isExpanded: true,
               items: const [
-                DropdownMenuItem(value: 'unit 1',child: Text('Unit 1'),),
-                DropdownMenuItem(value: 'unit 2',child: Text('Unit 2'),),
-                DropdownMenuItem(value: 'unit 3',child: Text('Unit 3'),),
+                DropdownMenuItem(value: 'Rajkot',child: Text('Rajkot'),),
+                DropdownMenuItem(value: 'Jetpur',child: Text('Jetpur'),),
+                DropdownMenuItem(value: 'Jamanagar',child: Text('Jamanagar'),),
               ],
               onChanged: (v) => setState(() {
                   unit = v!;
@@ -40,7 +40,7 @@ class _DropDownExampleState extends State<DropDownExample> {
             
             ElevatedButton(
               onPressed: setDropDownValue,
-              child: const Text('Set value to unit 3'),
+              child: const Text('Set value to Jetpur'),
             ),
           ],
         ),

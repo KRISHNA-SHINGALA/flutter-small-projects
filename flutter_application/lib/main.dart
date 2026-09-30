@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/tabview.dart';
+// import 'package:flutter_application/controls/chkbox.dart';
+// import 'package:flutter_application/tabview.dart';
 // import 'package:flutter_application/gridview.dart';
 // import 'package:flutter_application/controls/calenderexample.dart';
 // import 'package:flutter_application/controls/dropdown.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_application/tabview.dart';
 // import 'package:flutter_application/controls/scrollviewimage.dart';
 // import 'package:flutter_application/controls/sliderexample.dart';
 // import 'package:flutter_application/registration.dart';
+import 'package:flutter_application/registration1.dart';
 // import 'package:flutter_application/loginscreen.dart';
 
 // void main() {
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: TabExample(),
+      home: Registration1(),
     );
   }
 }
